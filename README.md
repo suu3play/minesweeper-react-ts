@@ -1,47 +1,110 @@
-# Getting Started with Create React App
+# Minesweeper React TypeScript
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A classic Minesweeper game built with React and TypeScript, featuring a nostalgic Windows-style interface.
 
-## Available Scripts
+## 🎮 Features
 
-In the project directory, you can run:
+- **Classic Gameplay**: Traditional minesweeper rules with 9x9 grid and 10 mines
+- **Smart First Click**: First click is always safe - no mine will be placed there
+- **Interactive Controls**: 
+  - Left click to reveal cells
+  - Right click to flag/unflag mines
+- **Game State Management**: Win/lose detection with visual feedback
+- **Timer**: Track your solving time
+- **Mine Counter**: Shows remaining mines (total mines - flags placed)
+- **Responsive Design**: Works on desktop and mobile devices
+- **Retro UI**: Classic Windows Minesweeper aesthetic
 
-### `npm start`
+## 🚀 Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Node.js (v14 or higher)
+- npm or yarn
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+```bash
+git clone git@github.com:suu3play/minesweeper-react-ts.git
+cd minesweeper-react-ts
+```
 
-### `npm run build`
+2. Install dependencies:
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Start the development server:
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🎯 How to Play
 
-### `npm run eject`
+1. **Objective**: Find all mines without triggering any of them
+2. **Left Click**: Reveal a cell
+3. **Right Click**: Place or remove a flag on a suspected mine
+4. **Numbers**: Show how many mines are adjacent to that cell
+5. **Win Condition**: Reveal all non-mine cells
+6. **Lose Condition**: Click on a mine
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🛠️ Tech Stack
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **React 18** - UI framework
+- **TypeScript** - Type safety and better development experience
+- **CSS3** - Custom styling with classic minesweeper look
+- **Create React App** - Project setup and build tools
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 📁 Project Structure
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+src/
+├── components/          # React components
+│   ├── Board.tsx       # Game board component
+│   ├── Cell.tsx        # Individual cell component
+│   └── GameHeader.tsx  # Header with timer and controls
+├── types/              # TypeScript type definitions
+│   └── index.ts        # Game-related types
+├── utils/              # Utility functions
+│   └── gameLogic.ts    # Core game logic
+├── App.tsx             # Main application component
+├── App.css             # Application styles
+└── index.tsx           # Application entry point
+```
 
-## Learn More
+## 🎨 Customization
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can easily modify the game configuration in `src/App.tsx`:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-# minesweeper-react-ts
+```typescript
+const defaultConfig: GameConfig = {
+  rows: 9,     // Board height
+  cols: 9,     // Board width  
+  mines: 10    // Number of mines
+};
+```
+
+## 📱 Mobile Support
+
+The game is fully responsive and includes:
+- Touch-friendly controls
+- Optimized cell sizes for mobile screens
+- Responsive layout that adapts to different screen sizes
+
+## 🚀 Available Scripts
+
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run eject` - Ejects from Create React App (one-way operation)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
