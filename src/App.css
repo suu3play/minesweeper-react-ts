@@ -1,0 +1,142 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.game-container {
+  background-color: #c0c0c0;
+  border: 2px outset #c0c0c0;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.game-container h1 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #c0c0c0;
+  border: 2px inset #c0c0c0;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+}
+
+.mine-counter,
+.timer {
+  background-color: #000;
+  color: #ff0000;
+  padding: 5px 10px;
+  border: 1px inset #c0c0c0;
+  font-size: 18px;
+  min-width: 60px;
+}
+
+.restart-button {
+  background-color: #c0c0c0;
+  border: 2px outset #c0c0c0;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.restart-button:active {
+  border: 2px inset #c0c0c0;
+}
+
+.board {
+  display: inline-block;
+  border: 3px inset #c0c0c0;
+  background-color: #c0c0c0;
+}
+
+.board-row {
+  display: flex;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 2px outset #c0c0c0;
+  background-color: #c0c0c0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
+}
+
+.cell.hidden:hover {
+  background-color: #d0d0d0;
+}
+
+.cell.revealed {
+  border: 1px solid #808080;
+  background-color: #c0c0c0;
+  cursor: default;
+}
+
+.cell.revealed.mine {
+  background-color: #ff0000;
+}
+
+.cell.flagged {
+  background-color: #c0c0c0;
+}
+
+.cell.number-1 { color: #0000ff; }
+.cell.number-2 { color: #008000; }
+.cell.number-3 { color: #ff0000; }
+.cell.number-4 { color: #000080; }
+.cell.number-5 { color: #800000; }
+.cell.number-6 { color: #008080; }
+.cell.number-7 { color: #000000; }
+.cell.number-8 { color: #808080; }
+
+@media (max-width: 600px) {
+  .game-container {
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .cell {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+  
+  .game-header {
+    padding: 5px;
+  }
+  
+  .mine-counter,
+  .timer {
+    font-size: 14px;
+    min-width: 50px;
+    padding: 3px 6px;
+  }
+  
+  .restart-button {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+}
