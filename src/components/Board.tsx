@@ -11,9 +11,9 @@ interface BoardProps {
 
 const Board: React.FC<BoardProps> = ({ board, onCellClick, onCellRightClick, gameStatus }) => {
   return (
-    <div className="board">
+    <div className="inline-block bg-white/30 backdrop-blur-sm border-2 border-white/40 rounded-xl p-3 shadow-lg">
       {board.map((row, rowIndex) => (
-        <div key={rowIndex} className="board-row">
+        <div key={rowIndex} className="flex">
           {row.map((cell, colIndex) => (
             <Cell
               key={`${rowIndex}-${colIndex}`}

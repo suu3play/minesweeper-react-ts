@@ -109,9 +109,11 @@ function App() {
   }, [gameState.gameStatus]);
 
   return (
-    <div className="App">
-      <div className="game-container">
-        <h1>マインスイーパー</h1>
+    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100 flex items-center justify-center p-4">
+      <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl shadow-glass p-8 max-w-md w-full animate-fade-in">
+        <h1 className="text-3xl font-bold text-center mb-6 text-slate-700 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          マインスイーパー
+        </h1>
         <GameHeader
           mineCount={gameState.mineCount}
           flagCount={gameState.flagCount}

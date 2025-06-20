@@ -39,26 +39,37 @@ const Cell: React.FC<CellProps> = ({ cell, onClick, onRightClick, gameStatus }) 
   };
 
   const getCellClass = () => {
-    let baseClass = 'cell';
+    let baseClasses = 'cell w-8 h-8 sm:w-8 sm:h-8 flex items-center justify-center font-bold text-sm transition-all duration-200 border focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 ';
     
     if (cell.isRevealed) {
-      baseClass += ' revealed';
       if (cell.isMine) {
-        baseClass += ' mine';
+        baseClasses += 'bg-mine-red text-white border-red-600 shadow-inner animate-bounce-in';
+      } else {
+        baseClasses += 'bg-gray-100 border-gray-300 shadow-inner';
+        if (cell.neighborMines > 0) {
+          const numberColors = [
+            '', 'text-blue-600', 'text-green-600', 'text-red-500', 
+            'text-purple-600', 'text-yellow-600', 'text-pink-500', 
+            'text-gray-800', 'text-black'
+          ];
+          baseClasses += ` ${numberColors[cell.neighborMines]}`;
+        }
       }
     } else {
-      baseClass += ' hidden';
+      if (cell.isFlagged) {
+        baseClasses += 'bg-flag-yellow/80 border-yellow-400 shadow-lg hover:bg-flag-yellow hover:scale-105';
+      } else {
+        baseClasses += 'bg-gradient-to-br from-slate-200 to-slate-300 border-slate-400 hover:from-slate-100 hover:to-slate-200 hover:scale-105 shadow-cell active:scale-95';
+      }
     }
     
-    if (cell.isFlagged) {
-      baseClass += ' flagged';
+    if (gameStatus !== 'playing') {
+      baseClasses += ' cursor-default';
+    } else {
+      baseClasses += ' cursor-pointer';
     }
     
-    if (cell.isRevealed && cell.neighborMines > 0 && !cell.isMine) {
-      baseClass += ` number-${cell.neighborMines}`;
-    }
-    
-    return baseClass;
+    return baseClasses;
   };
 
   return (
@@ -68,7 +79,9 @@ const Cell: React.FC<CellProps> = ({ cell, onClick, onRightClick, gameStatus }) 
       onContextMenu={handleRightClick}
       disabled={gameStatus !== 'playing'}
     >
-      {getCellContent()}
+      <span className={cell.isRevealed && !cell.isMine ? 'animate-fade-in' : ''}>
+        {getCellContent()}
+      </span>
     </button>
   );
 };
